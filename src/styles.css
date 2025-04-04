@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+
+@font-face {
+    font-family: "iranSanc-r";
+    src: url("../public/fonts/IRANSansXFaNum-Regular.woff2");
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: "iranSanc-db";
+    src: url("../public/fonts/IRANSansXFaNum-DemiBold.woff2");
+    font-style: normal;
+    font-weight: 600;
+}
+
+
+
+@theme {
+    --color-main-blue : #0052CC;
+    --color-light-blue : #DDEBFF;
+    --color-main-black : #313131;
+    --color-dashboard-bg : #F6F6F6;
+    --color-main-white : #FEFEFE;
+  
+
+    --font-iranSansRegular : "iranSanc-r";
+    --font-iranSansDemiBold : "iranSanc-db";
+
+    --breakpoint-xs : 480px;
+}
+
+
+.activedLink {
+    @apply bg-main-blue text-main-white rounded-lg
+}
