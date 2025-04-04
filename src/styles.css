@@ -35,3 +35,7 @@
 .activedLink {
     @apply bg-main-blue text-main-white rounded-lg
 }
+
+.activedButton {
+    @apply  *:text-main-blue inline-flex items-center gap-1 font-iranSansDemiBold bg-main-white *:text-sm
+}

@@ -4,7 +4,7 @@ import { CourseBookComponent } from '../course-book/course-book.component';
 
 @Component({
   selector: 'app-course-details',
-  imports: [RouterLink , RouterModule , CourseBookComponent],
+  imports: [RouterLink , RouterModule  ],
   templateUrl: './course-details.component.html',
   styleUrl: './course-details.component.css'
 })
