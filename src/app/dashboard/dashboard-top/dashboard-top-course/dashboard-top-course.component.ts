@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-top-course',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard-top-course.component.css'
 })
 export class DashboardTopCourseComponent {
+
+ @Input() course:any
+  
+
 
 }

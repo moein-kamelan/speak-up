@@ -35,12 +35,12 @@
     </div>
     
   
-    <div class="courses__container grid  grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-4 *:max-h-[324px]" >
+    <div class="courses__container grid  grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5  gap-3 mb-4 *:max-h-[324px] content-stretch Align-items" >
       <app-course-card *ngFor="let course of courses" [course]="course"></app-course-card>
   
      
     
-  <app-dashboard-add-course-card></app-dashboard-add-course-card>
+  <app-dashboard-add-course-card class="h-full"></app-dashboard-add-course-card>
       
     </div>
   
