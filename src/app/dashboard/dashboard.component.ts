@@ -5,7 +5,7 @@ import { DashboardCoursesComponent } from './dashboard-courses/dashboard-courses
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CourseCardComponent , DashboardTopComponent , DashboardCoursesComponent],
+  imports: [ DashboardTopComponent , DashboardCoursesComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
