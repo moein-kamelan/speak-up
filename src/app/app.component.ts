@@ -1,9 +1,11 @@
 import { Component, ElementRef, ViewChild, viewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { SidebarMobileComponent } from './shared/sidebar-mobile/sidebar-mobile.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet , RouterLink , RouterModule , RouterLinkActive],
+  imports: [RouterOutlet , RouterLink , RouterModule , RouterLinkActive , SidebarComponent , SidebarMobileComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

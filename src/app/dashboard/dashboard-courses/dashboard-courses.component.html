@@ -1,0 +1,74 @@
+<div class="courses">
+
+    <div class="courses__top sm:flex sm:items-center justify-between mt-4 mb-8 sm:mt-[13px] sm:mb-[15px]">
+      <h3 class="courses__title font-iranSansDemiBold text-main-black  lg:text-[22px]">
+        دوره ها
+      </h3>
+  
+      <div class="courses__level  hidden sm:items-center sm:gap-2 lg:flex">
+        <h5 class="courses-level__text text-main-blue">
+          نیاز به تعیین سطح جدید داری؟
+        </h5>
+        <a
+          href="#"
+          class="courses-level__link flex items-center justify-center p-1.5 gap-2 bg-light-blue border rounded-sm border-main-blue"
+        >
+          <svg
+            class="courses-level-link__icon size-6"
+            viewBox="0 0 25 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.75 2C5.5095 2 4.5 3.0095 4.5 4.25V19.75C4.5 20.9905 5.5095 22 6.75 22H17V21.9746C15.8045 21.8556 14.7335 21.3125 13.9355 20.5H6.75C6.3365 20.5 6 20.1635 6 19.75V4.25C6 3.8365 6.3365 3.5 6.75 3.5H12.5V7.75C12.5 8.9905 13.5095 10 14.75 10H19V12.2305C19.5475 12.403 20.0515 12.6718 20.5 13.0098V9.25C20.5 9.04275 20.416 8.85541 20.2803 8.71973L13.7803 2.21973C13.6445 2.08404 13.457 2 13.25 2H6.75ZM14 4.56055L17.9395 8.5H14.75C14.3365 8.5 14 8.1635 14 7.75V4.56055ZM17.5 13C15.2945 13 13.5 14.7945 13.5 17C13.5 19.2055 15.2945 21 17.5 21C18.3325 21 19.1051 20.7436 19.7461 20.3066L22.2197 22.7803C22.3662 22.9273 22.558 23 22.75 23C22.942 23 23.1338 22.9268 23.2803 22.7803C23.5728 22.4873 23.5728 22.0127 23.2803 21.7197L20.8076 19.2461C21.2441 18.6051 21.5 17.8325 21.5 17C21.5 14.7945 19.7055 13 17.5 13ZM17.5 14.5C18.8785 14.5 20 15.6215 20 17C20 18.3785 18.8785 19.5 17.5 19.5C16.1215 19.5 15 18.3785 15 17C15 15.6215 16.1215 14.5 17.5 14.5Z"
+              fill="#0052CC"
+            />
+          </svg>
+    
+          <span
+            class="courses-level-link__text font-iranSansDemiBold text-sm text-main-blue"
+            >تعیین سطح</span
+          >
+        </a>
+      </div>
+  
+    </div>
+    
+  
+    <div class="courses__container grid  grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-4 *:max-h-[324px]" >
+      <app-course-card></app-course-card>
+      <app-course-card></app-course-card>
+      <app-course-card></app-course-card>
+     
+    
+  <app-dashboard-add-course-card></app-dashboard-add-course-card>
+      
+    </div>
+  
+    <div class="courses__level flex items-center gap-2 lg:hidden">
+      <h5 class="courses-level__text text-main-blue">
+        نیاز به تعیین سطح جدید داری؟
+      </h5>
+      <a
+        href="#"
+        class="courses-level__link flex items-center justify-center p-1.5 gap-2 bg-light-blue border rounded-sm border-main-blue"
+      >
+        <svg
+          class="courses-level-link__icon size-6"
+          viewBox="0 0 25 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.75 2C5.5095 2 4.5 3.0095 4.5 4.25V19.75C4.5 20.9905 5.5095 22 6.75 22H17V21.9746C15.8045 21.8556 14.7335 21.3125 13.9355 20.5H6.75C6.3365 20.5 6 20.1635 6 19.75V4.25C6 3.8365 6.3365 3.5 6.75 3.5H12.5V7.75C12.5 8.9905 13.5095 10 14.75 10H19V12.2305C19.5475 12.403 20.0515 12.6718 20.5 13.0098V9.25C20.5 9.04275 20.416 8.85541 20.2803 8.71973L13.7803 2.21973C13.6445 2.08404 13.457 2 13.25 2H6.75ZM14 4.56055L17.9395 8.5H14.75C14.3365 8.5 14 8.1635 14 7.75V4.56055ZM17.5 13C15.2945 13 13.5 14.7945 13.5 17C13.5 19.2055 15.2945 21 17.5 21C18.3325 21 19.1051 20.7436 19.7461 20.3066L22.2197 22.7803C22.3662 22.9273 22.558 23 22.75 23C22.942 23 23.1338 22.9268 23.2803 22.7803C23.5728 22.4873 23.5728 22.0127 23.2803 21.7197L20.8076 19.2461C21.2441 18.6051 21.5 17.8325 21.5 17C21.5 14.7945 19.7055 13 17.5 13ZM17.5 14.5C18.8785 14.5 20 15.6215 20 17C20 18.3785 18.8785 19.5 17.5 19.5C16.1215 19.5 15 18.3785 15 17C15 15.6215 16.1215 14.5 17.5 14.5Z"
+            fill="#0052CC"
+          />
+        </svg>
+  
+        <span
+          class="courses-level-link__text font-iranSansDemiBold text-sm text-main-blue"
+          >تعیین سطح</span
+        >
+      </a>
+    </div>
+  </div>
