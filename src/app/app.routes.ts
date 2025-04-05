@@ -1,30 +1,30 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { MyCoursesComponent } from './my-courses/my-courses.component';
-import { CourseDetailsComponent } from './course-details/course-details.component';
-import { InteractionBooksComponent } from './interaction-books/interaction-books.component';
-import { PracticeComponent } from './practice/practice.component';
+
+
+
+
+
 
 export const routes: Routes = [
 
   {
     path: 'myCourses/courseDetails',
     title: 'courseDetails',
-    component : CourseDetailsComponent ,
+    loadComponent: () => import('./course-details/course-details.component').then(m => m.CourseDetailsComponent) ,
     children: [
       {
         path: 'interactionBooks',
         title: 'courseDetails',
-        component: InteractionBooksComponent,
+        loadComponent: () => import('./interaction-books/interaction-books.component').then(m => m.InteractionBooksComponent),
       },
       {
         path: 'practices',
         title: 'courseDetails',
-        component: PracticeComponent,
+        loadComponent: () => import('./practice/practice.component').then(m => m.PracticeComponent),
       },
     ],
   },
-  { path: 'myCourses', title: 'myCourses', component: MyCoursesComponent },
-  { path: '', title: 'dashboard', component: DashboardComponent },
+  { path: 'myCourses', title: 'myCourses', loadComponent: () => import('./my-courses/my-courses.component').then(m => m.MyCoursesComponent) },
+  { path: '', title: 'dashboard', loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent) },
 
 ];

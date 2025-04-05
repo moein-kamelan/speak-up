@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DashboardTopCourseComponent } from './dashboard-top-course/dashboard-top-course.component';
 import { DashboardTopCalendarComponent } from './dashboard-top-calendar/dashboard-top-calendar.component';
 import { CommonModule } from '@angular/common';
+import { Course } from '../../courses';
 
 @Component({
   selector: 'app-dashboard-top',
@@ -10,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dashboard-top.component.css'
 })
 export class DashboardTopComponent {
-  courses:any[] = [
+  courses:Course[] = [
     {img : "/images/courses-images/course-img1.png" , 
     title : "Big English 4" , 
     level : "A2" , 

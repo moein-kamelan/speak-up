@@ -6,7 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-sidebar-navigation',
-  imports: [RouterModule , RouterLink , RouterLinkActive , SidebarNavigationButtonComponent , CommonModule],
+  imports: [ SidebarNavigationButtonComponent , CommonModule],
   templateUrl: './sidebar-navigation.component.html',
   styleUrl: './sidebar-navigation.component.css'
 })

@@ -6,7 +6,7 @@ import { SidebarNavigationButtonComponent } from './sidebar-navigation/sidebar-n
 
 @Component({
   selector: 'app-sidebar',
-  imports: [ SidebarHeaderComponent , SidebarNavigationComponent , SidebarNavigationButtonComponent],
+  imports: [ SidebarHeaderComponent , SidebarNavigationComponent ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CourseCardComponent } from '../../course-card/course-card.component';
 import { DashboardAddCourseCardComponent } from './dashboard-add-course-card/dashboard-add-course-card.component';
 import { CommonModule } from '@angular/common';
+import { Course } from '../../courses';
 
 @Component({
   selector: 'app-dashboard-courses',
@@ -10,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dashboard-courses.component.css'
 })
 export class DashboardCoursesComponent {
-courses:any[] = [
+courses:Course[] = [
   {img : "/images/courses-images/course-img1.png" , 
   title : "Big English 4" , 
   level : "A2" , 

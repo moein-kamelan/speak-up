@@ -6,10 +6,7 @@ import { Component, Input, OnInit, input } from '@angular/core';
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css'
 })
-export class CourseCardComponent implements OnInit{
+export class CourseCardComponent  {
 @Input() course:any 
-ngOnInit(): void {
-  console.log(this.course);
-  
-}
+
 }
