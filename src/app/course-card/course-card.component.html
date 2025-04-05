@@ -3,7 +3,7 @@
       class="course__img-container rounded-lg px-7 pt-2.5 pb-5 bg-dashboard-bg xl:py-[25px] xl:px-[51px]"
     >
       <img
-        src="/images/courses-images/course-img1.png"
+        [src]="course.img"
         alt="course-phout"
         class="course__img object-cover w-full h-full max-h-44 "
       />
@@ -12,12 +12,12 @@
     <h3
       class="course__title text-sm/5 text-main-black font-iranSansDemiBold mt-2 "
     >
-      Big English 4
+      {{course.title}}
     </h3>
     <h4
       class="course__level mb-2 text-xs text-[#1D1D1D] font-iranSansDemiBold "
     >
-      A2
+      {{course.level}}
     </h4>
 
     <a

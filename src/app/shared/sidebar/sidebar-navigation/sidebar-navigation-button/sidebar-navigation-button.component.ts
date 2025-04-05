@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 
 @Component({
@@ -8,5 +8,6 @@ import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
   styleUrl: './sidebar-navigation-button.component.css'
 })
 export class SidebarNavigationButtonComponent {
+@Input() navigator:any
 
 }

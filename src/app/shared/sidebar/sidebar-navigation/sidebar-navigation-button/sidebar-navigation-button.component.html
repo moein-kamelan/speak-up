@@ -1,6 +1,6 @@
 <li class="sidbar__item">
     <a
-      routerLink="/" routerLinkActive="activedLink" [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="navigator.path" routerLinkActive="activedLink" [routerLinkActiveOptions]="{ exact: true }"
       class="sidebar flex items-center gap-2 py-4 px-2  rounded-lg"
     >
       <svg
@@ -13,6 +13,6 @@
         />
       </svg>
 
-      <span class="sidebar-text sm:text-sm lg:text-base">داشبورد</span>
+      <span class="sidebar-text sm:text-sm lg:text-base">{{navigator.title}}</span>
     </a>
   </li>

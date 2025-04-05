@@ -36,7 +36,7 @@
     
   
     <div class="courses__container grid  grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-4 *:max-h-[324px]" >
-      <app-course-card *ngFor="let course of courses" courses="course"></app-course-card>
+      <app-course-card *ngFor="let course of courses" [course]="course"></app-course-card>
   
      
     

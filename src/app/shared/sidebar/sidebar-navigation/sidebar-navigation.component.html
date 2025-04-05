@@ -1,6 +1,10 @@
 <ul class="sidebar__list text-main-black">
-   <app-sidebar-navigation-button></app-sidebar-navigation-button>
-    <li class="sidbar__item">
+   <app-sidebar-navigation-button *ngFor="let navigator of navigators" [navigator]="navigator"></app-sidebar-navigation-button>
+
+   
+   
+   
+    <!-- <li class="sidbar__item">
       <a routerLink="/myCourses" routerLinkActive="activedLink"  class="sidebar flex items-center gap-2 py-4 px-2">
         <svg
           class="sidebar-icon size-7.5 fill-current shrink-0"
@@ -65,5 +69,5 @@
   
         <span class="sidebar-text sm:text-sm lg:text-base">پشتیبانی</span>
       </a>
-    </li>
+    </li> -->
   </ul>
