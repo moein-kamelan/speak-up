@@ -39,3 +39,5 @@
 .activedButton {
     @apply  *:text-main-blue inline-flex items-center gap-1 font-iranSansDemiBold bg-main-white *:text-sm
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

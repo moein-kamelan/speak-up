@@ -10,8 +10,11 @@ export class SidebarMobileComponent {
   @ViewChild("overlay") overlay? : ElementRef 
 
   openMenu(menu:any) {
+    
     menu.classList.add("active")
     this.overlay?.nativeElement.classList.add("active")
+    console.log(this.overlay?.nativeElement. classList);
+    
   }
 
   closeMenu(menu : any) {

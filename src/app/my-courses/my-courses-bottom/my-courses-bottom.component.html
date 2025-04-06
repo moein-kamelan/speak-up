@@ -1,0 +1,33 @@
+<div class="myCourses">
+    <div
+      class="myCourses__top sm:flex sm:items-center sm:justify-between my-2 sm:mt-11"
+    >
+      <h2
+        class="myCourses__title font-iranSansDemiBold sm:text-5.5 sm:font-iranSansRegular"
+      >
+        دوره های من
+      </h2>
+
+  <app-add-course-btn></app-add-course-btn>
+    </div>
+
+    <div
+      class="myCourses__titles hidden my-1.5 lg:grid items-center grid-cols-7 gap-2.5 *:text-[#B5B5B5] font-iranSansDemiBold **:text-center"
+    >
+      <span class="myCourses__title-name">عنوان</span>
+      <span class="myCourses__title-name">سطح</span>
+      <span class="myCourses__title-name">ترم</span>
+      <span class="myCourses__title-name">زمان برگذاری</span>
+      <span class="myCourses__title-name">تعداد اعضا</span>
+      <span class="myCourses__title-name">وضعیت</span>
+      <span class="myCourses__title-name"></span>
+    </div>
+
+    <div class="myCourses__container flex flex-col gap-y-4">
+        @for(course of courses ; track $index) {
+      <app-my-courses-card  [course]="course"></app-my-courses-card>
+
+        }
+
+    </div>
+  </div>

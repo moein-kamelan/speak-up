@@ -19,7 +19,7 @@ export class SidebarNavigationComponent implements OnInit{
     });
   }
 navigators:any[] = [
-  {title : "داشبورد" , path:"/"  , svg : ` <svg
+  {title : "داشبورد" , path:"/dashboard"  , svg : ` <svg
   class="sidebar-icon fill-current size-7.5 shrink-0 "
   viewBox="0 0 30 31"
   xmlns="http://www.w3.org/2000/svg"

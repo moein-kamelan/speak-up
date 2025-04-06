@@ -5,6 +5,7 @@ import { Routes } from '@angular/router';
 
 
 
+
 export const routes: Routes = [
 
   {
@@ -25,6 +26,7 @@ export const routes: Routes = [
     ],
   },
   { path: 'myCourses', title: 'myCourses', loadComponent: () => import('./my-courses/my-courses.component').then(m => m.MyCoursesComponent) },
-  { path: '', title: 'dashboard', loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent) },
+  {path : "dashboard" , title : "dashboard" , loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent) },
+  { path: '',  redirectTo:"dashboard" , pathMatch : "full" },
 
 ];
