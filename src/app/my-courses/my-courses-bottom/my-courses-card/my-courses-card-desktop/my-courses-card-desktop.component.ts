@@ -2,10 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { Course } from '../../../../models/courses';
 import { CourseStatusDirective } from '../../../../directives/course-status.directive';
+import { MaterialModule } from '../../../../material/material.module';
 
 @Component({
   selector: 'app-my-courses-card-desktop',
-  imports: [RouterModule , RouterLink , CourseStatusDirective],
+  imports: [RouterModule , RouterLink , CourseStatusDirective ,MaterialModule],
   templateUrl: './my-courses-card-desktop.component.html',
   styleUrl: './my-courses-card-desktop.component.css'
 })
@@ -19,10 +20,10 @@ ngOnInit(): void {
 
 
 
-togglePopup(event:Event , popup:Element) {
+togglePopup(event:Event , menu:any) {
   event.preventDefault()
   event.stopPropagation()
-  console.log(popup);
+  console.log(menu);
   
 
 }

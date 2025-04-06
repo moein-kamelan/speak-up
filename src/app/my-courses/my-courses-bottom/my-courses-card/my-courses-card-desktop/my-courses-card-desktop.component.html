@@ -32,7 +32,7 @@ px-1  font-iranSansDemiBold max-xl:text-sm ">{{course.status}}</span>
 <!-- <span [appCourseStatus]="course.status" class="myCourses-card-desktop__status !text-main-blue bg-light-blue rounded-sm py-2
 px-1  font-iranSansDemiBold max-xl:text-sm ">{{course.status}}</span> -->
     
-    <div
+    <!-- <div
        (click)="togglePopup($event , popup)" class="myCourses-card-desktop__btn  rounded-lg text-main-black text-5.5 flex justify-center items-center h-12  w-1/2 text-center mx-auto relative">
         . . .
 
@@ -40,6 +40,22 @@ px-1  font-iranSansDemiBold max-xl:text-sm ">{{course.status}}</span> -->
             <button class="delete-course-btn bg-red-300 ">حذف</button>
             <button class="delete-course-btn bg-blue-200 ">ویرایش</button>
         </div>
-     </div>
+     </div> -->
+
+
+     <button mat-icon-button   (click)="togglePopup($event , menu)" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="text-center">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" >
+        <button mat-menu-item >
+          <mat-icon>delete</mat-icon>
+          <span>حذف</span>
+        </button>
+       
+        <button mat-menu-item>
+          <mat-icon>edit</mat-icon>
+          <span>ویرایش</span>
+        </button>
+      </mat-menu>
 
 </a>
