@@ -8,7 +8,6 @@ import { MyCoursesTopComponent } from './my-courses-top/my-courses-top.component
 
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     RouterLink,

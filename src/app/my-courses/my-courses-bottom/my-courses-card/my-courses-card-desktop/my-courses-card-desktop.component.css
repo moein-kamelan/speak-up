@@ -1,0 +1,3 @@
+.active-popup {
+    @apply opacity-100 visible pointer-events-auto
+}
