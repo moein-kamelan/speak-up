@@ -4,6 +4,7 @@ import { DashboardAddCourseCardComponent } from './dashboard-add-course-card/das
 import { CommonModule } from '@angular/common';
 import { Course } from '../../models/courses';
 import { CoursesService } from '../../services/courses.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-courses',
@@ -12,18 +13,13 @@ import { CoursesService } from '../../services/courses.service';
   styleUrl: './dashboard-courses.component.css'
 })
 export class DashboardCoursesComponent implements OnInit {
-  courses:Course[] | null = null
-  
+  courses!:Observable<Course[]>  
 constructor(private coursesService:CoursesService) {
 
 }
 ngOnInit(): void {
-  // this.courses = this.coursesService.getAllCourses.subscribe()
-  this.coursesService.coursesSubject.subscribe((res)=>{
-    this.courses=res;
-  })
-
-
+    
+   this.courses = this.coursesService.getAllCourses()
 }
 
 }

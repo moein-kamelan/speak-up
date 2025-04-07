@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../models/courses';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, range, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
-  courses:Course[] | null = null
-  coursesSubject = new BehaviorSubject<Course[]>([
+  courses:Course[]  = [
     {
       id: Math.random() * 10000,
       img: "/images/courses-images/course-img1.png",
@@ -56,26 +55,33 @@ export class CoursesService {
       date: "02 آبان ماه",
       hour: "02:00 ساعت "
     },
-  ])
+  ]
+  coursesSubject = new BehaviorSubject<Course[]>(this.courses)
 
 
   
   
   getAllCourses() {
+    return this.coursesSubject
   }
 
   deleteCoure(id:number) {
-    const currentCourses = this.coursesSubject.getValue();
-    const updatedCourses = currentCourses.filter(course => course.id !== id);
-    this.coursesSubject.next(updatedCourses);
+
+    this.courses = this.courses.filter(course => course.id !== id);
+    this.coursesSubject.next(this.courses);
   }
 
-  createCourse() {
-
+  createCourse(course:Course) {
+    const newCourse = {id: Math.random() * 10000 , ...course}
+    this.courses.push(newCourse)
+    this.coursesSubject.next(this.courses)
   }
 
-  updateCourse(id:number) {
-
+  updateCourse(updatedCourse:Course) {
+    this.courses = this.courses.map(course => {
+      return course.id === updatedCourse.id ? updatedCourse : course
+    })
+    this.coursesSubject.next(this.courses)
   }
   constructor() { }
 }

@@ -36,7 +36,7 @@
     
   
     <div class="courses__container grid  grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5  gap-3 mb-4 *:max-h-[324px] content-stretch Align-items" >
-      @for (course of courses; track $index) {
+      @for (course of courses | async; track $index) {
       <app-course-card  [course]="course"></app-course-card>
 
       }

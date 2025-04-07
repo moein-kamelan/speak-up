@@ -40,7 +40,7 @@ export class EditConfirmModalComponent {
 
   onConfirm() {
     const id = this.data.id;
-    this.coursesService.updateCourse(id);
+    // this.coursesService.updateCourse(user);
     console.log("در حال حذف آیتم با آی‌دی:", id);
     this.dialogRef.close(true);
   }

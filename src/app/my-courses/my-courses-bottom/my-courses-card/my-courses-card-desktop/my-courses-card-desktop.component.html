@@ -46,11 +46,11 @@ px-1  font-iranSansDemiBold max-xl:text-sm ">{{course.status}}</span> -->
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu"  >
-        <button mat-menu-item class="!bg-red-200" (click)="onDeleteClick(course.id)" >
+        <button mat-menu-item class="!bg-red-200" (click)="onDeleteClick(course.id!)" >
           <mat-icon>delete</mat-icon>
           <span class="font-iranSansDemiBold" >حذف</span>
         </button>
-        <button mat-menu-item class="!bg-blue-200" (click)="onEditClick(course.id)">
+        <button mat-menu-item class="!bg-blue-200" (click)="onEditClick(course)">
           <mat-icon>edit</mat-icon>
           <span class="font-iranSansDemiBold">ویرایش</span>
         </button>

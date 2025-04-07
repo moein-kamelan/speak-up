@@ -24,7 +24,7 @@
     </div>
 
     <div class="myCourses__container flex flex-col gap-y-4">
-        @for(course of courses ; track $index) {
+        @for(course of courses | async ; track $index) {
       <app-my-courses-card  [course]="course"></app-my-courses-card>
 
         }
