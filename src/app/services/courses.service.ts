@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../models/courses';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
-  courses: Course[] = [
+  courses:Course[] | null = null
+  coursesSubject = new BehaviorSubject<Course[]>([
     {
-      id : Math.random() * 10000 ,
+      id: Math.random() * 10000,
       img: "/images/courses-images/course-img1.png",
       title: "Big English 4",
       level: "A2",
@@ -17,10 +19,9 @@ export class CoursesService {
       status: "در حال برگزاری",
       date: "24 آذر ماه",
       hour: "ساعت 12:00"
-
     },
     {
-      id : Math.random() * 10000 ,
+      id: Math.random() * 10000,
       img: "/images/courses-images/course-img2.png",
       title: "Big English 2",
       level: "A1",
@@ -30,10 +31,9 @@ export class CoursesService {
       status: "در انتظار برگزاری",
       date: "24 بهمن ماه",
       hour: "ساعت 11:32 "
-
     },
     {
-      id : Math.random() * 10000 ,
+      id: Math.random() * 10000,
       img: "/images/courses-images/course-img3.png",
       title: "Big English 5",
       level: "A2",
@@ -43,10 +43,9 @@ export class CoursesService {
       status: "در انتظار تکمیل ظرفیت",
       date: "25 شهریور ماه",
       hour: "08:34 ساعت "
-
     },
     {
-      id : Math.random() * 10000 ,
+      id: Math.random() * 10000,
       img: "/images/courses-images/course-img1.png",
       title: "Big English 3",
       level: "A2",
@@ -56,12 +55,27 @@ export class CoursesService {
       status: "پایان یافته",
       date: "02 آبان ماه",
       hour: "02:00 ساعت "
-
     },
-  ]
+  ])
 
+
+  
+  
   getAllCourses() {
-    return this.courses
+  }
+
+  deleteCoure(id:number) {
+    const currentCourses = this.coursesSubject.getValue();
+    const updatedCourses = currentCourses.filter(course => course.id !== id);
+    this.coursesSubject.next(updatedCourses);
+  }
+
+  createCourse() {
+
+  }
+
+  updateCourse(id:number) {
+
   }
   constructor() { }
 }

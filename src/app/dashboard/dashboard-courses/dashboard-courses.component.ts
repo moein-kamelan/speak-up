@@ -18,7 +18,14 @@ constructor(private coursesService:CoursesService) {
 
 }
 ngOnInit(): void {
-  this.courses = this.coursesService.getAllCourses()
+  // this.courses = this.coursesService.getAllCourses.subscribe()
+  this.coursesService.coursesSubject.subscribe((res)=>{
+    this.courses=res;
+  })
+
+
 }
 
 }
+
+
