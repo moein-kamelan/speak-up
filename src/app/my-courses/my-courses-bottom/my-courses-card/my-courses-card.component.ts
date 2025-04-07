@@ -14,17 +14,9 @@ import { CoursesService } from '../../../services/courses.service';
 export class MyCoursesCardComponent implements OnInit {
 @Input() course!:Course
 
-// courses:Course[] | null = null
-  
-// constructor(private coursesService : CoursesService) {
-
-// }
 
 ngOnInit(): void {
-  // this.courses = this.coursesService.getAllCourses()
-  console.log(this.course);
   
 }
-
 
 }

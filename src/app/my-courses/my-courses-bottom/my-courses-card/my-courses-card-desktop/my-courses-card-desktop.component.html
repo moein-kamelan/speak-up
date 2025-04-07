@@ -8,7 +8,7 @@
 @switch(course.status) {
     @case("در حال برگزاری") {
         <span class="myCourses-card-desktop__status !text-main-blue bg-light-blue rounded-sm py-2
-        px-1  font-iranSansDemiBold max-xl:text-sm ">{{course.status}}</span>
+        px-1  font-iranSansDemiBold max-xl:text-sm  " appCourseStatus>{{course.status}}</span>
     }
     @case("در انتظار برگزاری") {
         <span class="myCourses-card-desktop__status !text-[#0EB465] bg-[#F0FFF8]  rounded-sm py-2
@@ -42,19 +42,21 @@ px-1  font-iranSansDemiBold max-xl:text-sm ">{{course.status}}</span> -->
         </div>
      </div> -->
 
-
-     <button mat-icon-button   (click)="togglePopup($event , menu)" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="text-center">
+     <button mat-icon-button (click)="togglePopup($event , menu)" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon>more_vert</mat-icon>
       </button>
-      <mat-menu #menu="matMenu" >
-        <button mat-menu-item >
+      <mat-menu #menu="matMenu"  >
+        <button mat-menu-item class="!bg-red-200" (click)="onDeleteClick(course.id)" >
           <mat-icon>delete</mat-icon>
-          <span>حذف</span>
+          <span class="font-iranSansDemiBold" >حذف</span>
         </button>
-       
-        <button mat-menu-item>
+        <button mat-menu-item class="!bg-blue-200" (click)="onEditClick(course.id)">
           <mat-icon>edit</mat-icon>
-          <span>ویرایش</span>
+          <span class="font-iranSansDemiBold">ویرایش</span>
+        </button>
+        <button mat-menu-item class="!bg-yellow-200" >
+          <mat-icon>add</mat-icon>
+          <span class="font-iranSansDemiBold">دوره جدید</span>
         </button>
       </mat-menu>
 
