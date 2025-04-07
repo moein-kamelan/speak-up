@@ -1,11 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { Course } from '../../../../models/courses';
-import { CourseStatusDirective } from '../../../../directives/course-status.directive';
+import { EditConfirmModalComponent } from './edit-confirm-modal/edit-confirm-modal.component';
+import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-confirm-dialog.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MaterialModule } from '../../../../material/material.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-my-courses-card-desktop',
-  imports: [RouterModule , RouterLink  , MaterialModule , MatDialogModule],
+  imports: [RouterModule , RouterLink  , MaterialModule , MatDialogModule ,  MatMenuModule,
+    MatIconModule,
+    MatButtonModule],
   templateUrl: './my-courses-card-desktop.component.html',
   styleUrl: './my-courses-card-desktop.component.css',
 })

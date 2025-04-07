@@ -14,7 +14,8 @@ import {
 import {ErrorStateMatcher} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';  
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-edit-confirm-modal',
@@ -24,6 +25,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatDialogModule,
+MatButtonModule
   ],
   templateUrl: './edit-confirm-modal.component.html',
   styleUrl: './edit-confirm-modal.component.css'

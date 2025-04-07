@@ -5,11 +5,13 @@ import { CoursesService } from '../../../../../services/courses.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-delete-confirm-dialog',
   standalone: true,
-  imports: [MaterialModule ],
+  imports: [MaterialModule  , MatDialogModule
+    ,MatButtonModule],
   templateUrl: './delete-confirm-dialog.component.html',
   styleUrls: ['./delete-confirm-dialog.component.css']
 })
