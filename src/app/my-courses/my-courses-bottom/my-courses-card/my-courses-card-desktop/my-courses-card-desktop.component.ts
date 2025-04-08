@@ -5,9 +5,11 @@ import { MaterialModule } from '../../../../material/material.module';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-confirm-dialog.component';
 import { EditConfirmModalComponent } from './edit-confirm-modal/edit-confirm-modal.component';
+import { AddConfirmModalComponent } from '../../add-course-btn/add-confirm-modal/add-confirm-modal.component';
+import { CourseStatusDirective } from '../../../../directives/course-status.directive';
 @Component({
   selector: 'app-my-courses-card-desktop',
-  imports: [RouterModule , RouterLink  , MaterialModule , MatDialogModule],
+  imports: [RouterModule , RouterLink  , MaterialModule , MatDialogModule , CourseStatusDirective],
   templateUrl: './my-courses-card-desktop.component.html',
   styleUrl: './my-courses-card-desktop.component.css'
 })
@@ -24,28 +26,27 @@ onDeleteClick( id:number ) {
 
   dialogRef.afterClosed().subscribe(result => {
     if (result === true) {
-      // کار حذف انجام شود
       console.log('حذف تأیید شد');
     } else {
-      // حذف لغو شد
       console.log('حذف لغو شد');
     }
   });
 }
 
-onEditClick(id: number) {
-  const dialogRef = this.dialog.open(EditConfirmModalComponent , {data : {id : id} })
+onEditClick(course: Course) {
+  const dialogRef = this.dialog.open(EditConfirmModalComponent , {data : {course} })
 
   dialogRef.afterClosed().subscribe(result => {
     if (result === true) {
-      // کار حذف انجام شود
-      console.log('حذف تأیید شد');
+    
+      console.log('ویرایش تأیید شد');
     } else {
-      // حذف لغو شد
-      console.log('حذف لغو شد');
+      console.log('ویرایش لغو شد');
     }
   });
 }
+
+
 
 ngOnInit(): void {
   

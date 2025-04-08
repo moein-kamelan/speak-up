@@ -6,8 +6,8 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CoursesService {
-  courses:Course[] | null = null
-  coursesSubject = new BehaviorSubject<Course[]>([
+  
+  courses:Course[]  = [
     {
       id: Math.random() * 10000,
       img: "/images/courses-images/course-img1.png",
@@ -56,12 +56,15 @@ export class CoursesService {
       date: "02 آبان ماه",
       hour: "02:00 ساعت "
     },
-  ])
+  ]
+  coursesSubject = new BehaviorSubject<Course[]>(this.courses)
 
+  constructor() { }
 
   
   
   getAllCourses() {
+    return this.coursesSubject
   }
 
   deleteCoure(id:number) {
@@ -70,12 +73,22 @@ export class CoursesService {
     this.coursesSubject.next(updatedCourses);
   }
 
-  createCourse() {
-
+  createCourse(course:Course) {
+    const newCourse = {id: Math.random() * 10000 , ...course}
+    this.courses?.push(newCourse)
+    this.coursesSubject.next(this.courses!)
   }
 
-  updateCourse(id:number) {
-
+  updateCourse(updatedCourse: Course) {
+    
+    if (this.courses) {
+      this.courses = this.courses.map(course =>
+        course.id === updatedCourse.id ? updatedCourse : course
+      );
+    } else {
+      console.warn('courses is null, cannot update');
+    }
+    this.coursesSubject.next(this.courses!)
   }
-  constructor() { }
+  
 }

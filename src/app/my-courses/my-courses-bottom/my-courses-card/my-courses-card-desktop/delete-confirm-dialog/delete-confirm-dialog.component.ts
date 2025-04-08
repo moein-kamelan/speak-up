@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-delete-confirm-dialog',
   standalone: true,
-  imports: [MaterialModule ],
+  imports: [MaterialModule],
   templateUrl: './delete-confirm-dialog.component.html',
   styleUrls: ['./delete-confirm-dialog.component.css']
 })
@@ -20,7 +20,6 @@ export class DeleteConfirmDialogComponent {
 
   onConfirm() {
     const id = this.data.id;
-
     this.coursesService.deleteCoure(id)
     console.log("در حال حذف آیتم با آی‌دی:", id);
     this.dialogRef.close(true); // فقط تأیید ساده
