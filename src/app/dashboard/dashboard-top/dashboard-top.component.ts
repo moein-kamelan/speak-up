@@ -3,6 +3,7 @@ import { DashboardTopCourseComponent } from './dashboard-top-course/dashboard-to
 import { DashboardTopCalendarComponent } from './dashboard-top-calendar/dashboard-top-calendar.component';
 import { CommonModule } from '@angular/common';
 import { Course } from '../../models/courses';
+import { CourseStatus } from '../../course-status';
 
 @Component({
   selector: 'app-dashboard-top',
@@ -20,7 +21,7 @@ export class DashboardTopComponent {
       term: "A1 a",
       startTime: "1402/09/21",
       members: "10/10",
-      status: "در حال برگزاری",
+      status: CourseStatus.Finished,
       date: "24 آذر ماه",
       hour: "ساعت 12:00"
 

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../models/courses';
-import { BehaviorSubject, range, Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { CourseStatus } from '../course-status';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
+  
   courses:Course[]  = [
     {
       id: Math.random() * 10000,
@@ -15,7 +17,7 @@ export class CoursesService {
       term: "A1 a",
       startTime: "1402/09/21",
       members: "10/10",
-      status: "در حال برگزاری",
+      status : CourseStatus.Finished ,
       date: "24 آذر ماه",
       hour: "ساعت 12:00"
     },
@@ -27,7 +29,7 @@ export class CoursesService {
       term: "A2 b",
       startTime: "1402/11/03",
       members: "9/10",
-      status: "در انتظار برگزاری",
+      status : CourseStatus.InProgress ,
       date: "24 بهمن ماه",
       hour: "ساعت 11:32 "
     },
@@ -39,7 +41,7 @@ export class CoursesService {
       term: "A1 a",
       startTime: "1401/03/20",
       members: "7/10",
-      status: "در انتظار تکمیل ظرفیت",
+      status : CourseStatus.WaitingForCapacity , 
       date: "25 شهریور ماه",
       hour: "08:34 ساعت "
     },
@@ -51,13 +53,14 @@ export class CoursesService {
       term: "A1 g",
       startTime: "1400/11/03",
       members: "4/10",
-      status: "پایان یافته",
+      status : CourseStatus.WaitingToStart ,
       date: "02 آبان ماه",
       hour: "02:00 ساعت "
     },
   ]
   coursesSubject = new BehaviorSubject<Course[]>(this.courses)
 
+  constructor() { }
 
   
   
@@ -66,22 +69,27 @@ export class CoursesService {
   }
 
   deleteCoure(id:number) {
-
-    this.courses = this.courses.filter(course => course.id !== id);
-    this.coursesSubject.next(this.courses);
+    const currentCourses = this.coursesSubject.getValue();
+    const updatedCourses = currentCourses.filter(course => course.id !== id);
+    this.coursesSubject.next(updatedCourses);
   }
 
   createCourse(course:Course) {
     const newCourse = {id: Math.random() * 10000 , ...course}
-    this.courses.push(newCourse)
-    this.coursesSubject.next(this.courses)
+    this.courses?.push(newCourse)
+    this.coursesSubject.next(this.courses!)
   }
 
-  updateCourse(updatedCourse:Course) {
-    this.courses = this.courses.map(course => {
-      return course.id === updatedCourse.id ? updatedCourse : course
-    })
-    this.coursesSubject.next(this.courses)
+  updateCourse(updatedCourse: Course) {
+    
+    if (this.courses) {
+      this.courses = this.courses.map(course =>
+        course.id === updatedCourse.id ? updatedCourse : course
+      );
+    } else {
+      console.warn('courses is null, cannot update');
+    }
+    this.coursesSubject.next(this.courses!)
   }
-  constructor() { }
+  
 }

@@ -1,58 +1,55 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { Course } from '../../../../models/courses';
-import { EditConfirmModalComponent } from './edit-confirm-modal/edit-confirm-modal.component';
-import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-confirm-dialog.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MaterialModule } from '../../../../material/material.module';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-confirm-dialog.component';
+import { EditConfirmModalComponent } from './edit-confirm-modal/edit-confirm-modal.component';
+import { AddConfirmModalComponent } from '../../add-course-btn/add-confirm-modal/add-confirm-modal.component';
+import { CourseStatusDirective } from '../../../../directives/course-status.directive';
 @Component({
   selector: 'app-my-courses-card-desktop',
-  imports: [RouterModule , RouterLink  , MaterialModule , MatDialogModule ,  MatMenuModule,
-    MatIconModule,
-    MatButtonModule],
+  imports: [RouterModule , RouterLink  , MaterialModule , MatDialogModule , CourseStatusDirective],
   templateUrl: './my-courses-card-desktop.component.html',
   styleUrl: './my-courses-card-desktop.component.css',
 })
 export class MyCoursesCardDesktopComponent implements OnInit {
-  @Input() course!: Course;
+@Input() course!:Course
 
-  constructor(private dialog: MatDialog) {}
+constructor(private dialog: MatDialog) {
+  
+}
 
-  onDeleteClick(id: number) {
-    const dialogRef = this.dialog.open(DeleteConfirmDialogComponent, {
-      data: { id: id },
-    });
+onDeleteClick( id:number ) {
+  
+  const dialogRef = this.dialog.open(DeleteConfirmDialogComponent , {data : {id : id} })
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === true) {
-        // کار حذف انجام شود
-        console.log('حذف تأیید شد');
-      } else {
-        // حذف لغو شد
-        console.log('حذف لغو شد');
-      }
-    });
-  }
+  dialogRef.afterClosed().subscribe(result => {
+    if (result === true) {
+      console.log('حذف تأیید شد');
+    } else {
+      console.log('حذف لغو شد');
+    }
+  });
+}
 
-  onEditClick(course:Course) {
-    const dialogRef = this.dialog.open(EditConfirmModalComponent, {
-      data: { course: course },
-    });
+onEditClick(course: Course) {
+  const dialogRef = this.dialog.open(EditConfirmModalComponent , {data : {course} })
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === true) {
-        // کار حذف انجام شود
-        console.log('حذف تأیید شد');
-      } else {
-        // حذف لغو شد
-        console.log('حذف لغو شد');
-      }
-    });
-  }
+  dialogRef.afterClosed().subscribe(result => {
+    if (result === true) {
+    
+      console.log('ویرایش تأیید شد');
+    } else {
+      console.log('ویرایش لغو شد');
+    }
+  });
+  
+  
+  
+}
+
+
 
 ngOnInit(): void {
   

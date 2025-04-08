@@ -12,9 +12,9 @@
       type="text"
       matInput
       name="title"
-      [(ngModel)]="course.title"
       placeholder="عنوان دوره را بنویسید"
       required
+      ngModel
     />
   </mat-form-field>
 
@@ -25,9 +25,9 @@
       type="text"
       matInput
       name="level"
-      [(ngModel)]="course.level"
       placeholder="سطح دوره را بنویسید"
       required
+      ngModel
     />
   </mat-form-field>
   <mat-form-field class="example-full-width">
@@ -37,9 +37,9 @@
       type="text"
       matInput
       name="term"
-      [(ngModel)]="course.term"
       placeholder="ترم دوره را بنویسید"
       required
+      ngModel
     />
   </mat-form-field>
 
@@ -50,21 +50,11 @@
       type="text"
       matInput
       name="startTime"
-      [(ngModel)]="course.startTime"
       placeholder="زمان شروع دوره را بنویسید"
       required
+      ngModel
     />
   </mat-form-field>
-
-  <!-- <mat-form-field class="example-full-width">
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker">
-      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-    </mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field> -->
 
   <mat-form-field class="example-full-width">
     <mat-label>اعضا</mat-label>
@@ -73,9 +63,9 @@
       type="text"
       matInput
       name="members"
-      [(ngModel)]="course.members"
       placeholder="تعداد اعضا را بنویسید"
       required
+      ngModel
     />
   </mat-form-field>
 
@@ -84,11 +74,12 @@
     matNativeControl
     class="mb-8 !bg-[#e0e2ec] p-3"
     name="status"
-    [(ngModel)]="course.status"
     required
+    ngModel
   >
 
-  <option *ngFor="let status  of statusOptions" [value]="status">{{status}}</option>
+  <option   value="" selected></option>
+  <option  *ngFor="let status  of statusOptions" [value]="status">{{status}}</option>
     <!-- <option value="در حال برگزاری">در حال برگزاری</option>
     <option value="در انتظار برگزاری">در انتظار برگزاری</option>
     <option value="در انتظار تکمیل ظرفیت">در انتظار تکمیل ظرفیت</option>
@@ -103,9 +94,9 @@
       type="text"
       matInput
       name="date"
-      [(ngModel)]="course.date"
       placeholder="ساعت را وارد کنید"
       required
+      ngModel
     />
   </mat-form-field>
   <mat-form-field class="example-full-width">
@@ -115,9 +106,9 @@
       type="text"
       matInput
       name="hour"
-      [(ngModel)]="course.hour"
       placeholder="عنوان دوره را بنویسید"
       required
+      ngModel
     />
   </mat-form-field>
 
@@ -127,7 +118,7 @@
       mat-button
       color="warn"
       type="submit"
-      (click)="onConfirm()"
+      (click)="onConfirm(form.invalid)"
       [disabled]="form.invalid"
     >
       ویرایش
