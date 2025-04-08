@@ -1,1 +1,127 @@
-src/app/my-courses/my-courses-bottom/my-courses-card/my-courses-card-desktop/edit-confirm-modal/edit-confirm-modal.component.html
+<h2 mat-dialog-title class="font-iranSansRegular">ویرایش دوره</h2>
+
+<form
+  class="example-form flex flex-col p-2 max-h-[500px]"
+  #form="ngForm"
+  (ngSubmit)="onSubmit(form)"
+>
+  <mat-form-field class="example-full-width">
+    <mat-label>عنوان</mat-label>
+    <input
+      class=""
+      type="text"
+      matInput
+      name="title"
+      placeholder="عنوان دوره را بنویسید"
+      required
+      ngModel
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>سطح</mat-label>
+    <input
+      class=""
+      type="text"
+      matInput
+      name="level"
+      placeholder="سطح دوره را بنویسید"
+      required
+      ngModel
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>ترم</mat-label>
+    <input
+      class=""
+      type="text"
+      matInput
+      name="term"
+      placeholder="ترم دوره را بنویسید"
+      required
+      ngModel
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>زمان شروع</mat-label>
+    <input
+      class=""
+      type="text"
+      matInput
+      name="startTime"
+      placeholder="زمان شروع دوره را بنویسید"
+      required
+      ngModel
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>اعضا</mat-label>
+    <input
+      class=""
+      type="text"
+      matInput
+      name="members"
+      placeholder="تعداد اعضا را بنویسید"
+      required
+      ngModel
+    />
+  </mat-form-field>
+
+  <mat-label>وضعیت</mat-label>
+  <select
+    matNativeControl
+    class="mb-8 !bg-[#e0e2ec] p-3"
+    name="status"
+    required
+    ngModel
+  >
+
+  <option   value="" selected></option>
+  <option  *ngFor="let status  of statusOptions" [value]="status">{{status}}</option>
+    <!-- <option value="در حال برگزاری">در حال برگزاری</option>
+    <option value="در انتظار برگزاری">در انتظار برگزاری</option>
+    <option value="در انتظار تکمیل ظرفیت">در انتظار تکمیل ظرفیت</option>
+    <option value="پایان یافته">پایان یافته</option> -->
+
+  </select>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>تاریخ</mat-label>
+    <input
+      class=""
+      type="text"
+      matInput
+      name="date"
+      placeholder="ساعت را وارد کنید"
+      required
+      ngModel
+    />
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>ساعت</mat-label>
+    <input
+      class=""
+      type="text"
+      matInput
+      name="hour"
+      placeholder="عنوان دوره را بنویسید"
+      required
+      ngModel
+    />
+  </mat-form-field>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancel()">لغو</button>
+    <button
+      mat-button
+      color="warn"
+      type="submit"
+      (click)="onConfirm(form.invalid)"
+      [disabled]="form.invalid"
+    >
+      ویرایش
+    </button>
+  </mat-dialog-actions>
+</form>
