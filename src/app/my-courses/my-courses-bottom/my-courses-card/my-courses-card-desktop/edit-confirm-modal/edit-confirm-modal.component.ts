@@ -60,7 +60,7 @@ statusOptions: string[] = [];
     console.log("updatedCourse" , updatedCourse);
 
     this.coursesService.updateCourse(updatedCourse)
-    
+     
   }
 
   onCancel() {

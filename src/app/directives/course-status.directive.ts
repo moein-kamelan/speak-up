@@ -7,13 +7,14 @@ import {
     OnChanges,
     SimpleChanges
   } from '@angular/core';
+import { CourseStatus } from '../course-status';
   
   @Directive({
     selector: '[appCourseStatus]'
   })
   export class CourseStatusDirective implements OnInit, OnChanges {
   
-    @Input() appCourseStatus: string = '';
+    @Input() appCourseStatus: CourseStatus=CourseStatus.WaitingToStart ;
   
     constructor(private el: ElementRef, private renderer: Renderer2) {}
   
@@ -39,19 +40,19 @@ import {
   
       // حالا کلاس مربوط به وضعیت جدید رو اضافه کن:
       switch (this.appCourseStatus) {
-        case 'در حال برگزاری':
+        case CourseStatus.InProgress:
           this.renderer.addClass(this.el.nativeElement, '!text-main-blue');
           this.renderer.addClass(this.el.nativeElement, '!bg-light-blue');
           break;
-        case 'در انتظار برگزاری':
+        case CourseStatus.WaitingToStart:
           this.renderer.addClass(this.el.nativeElement, '!bg-[#F0FFF8]');
           this.renderer.addClass(this.el.nativeElement, '!text-[#0EB465]');
           break;
-        case 'در انتظار تکمیل ظرفیت':
+        case CourseStatus.WaitingForCapacity:
           this.renderer.addClass(this.el.nativeElement, 'bg-[#FFFCF2]');
           this.renderer.addClass(this.el.nativeElement, '!text-[#F8B604]');
           break;
-        case 'پایان یافته':
+        case CourseStatus.Finished:
           this.renderer.addClass(this.el.nativeElement, '!bg-[#FFF2F4]');
           this.renderer.addClass(this.el.nativeElement, '!text-[#FF233D]');
           break;

@@ -44,6 +44,9 @@ onEditClick(course: Course) {
       console.log('ویرایش لغو شد');
     }
   });
+  
+  
+  
 }
 
 

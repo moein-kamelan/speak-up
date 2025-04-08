@@ -1,3 +1,5 @@
+import { CourseStatus } from "../course-status";
+
 export interface Course {
   id?: number,
   img: string,
@@ -6,7 +8,7 @@ export interface Course {
   term: string,
   startTime: string,
   members: string,
-  status: string,
+  status: CourseStatus,
   date: string,
   hour: string,
 }
