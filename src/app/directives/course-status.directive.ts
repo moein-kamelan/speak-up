@@ -3,29 +3,45 @@ import {
     ElementRef,
     Input,
     Renderer2,
-    OnInit
+    OnInit,
+    OnChanges,
+    SimpleChanges
   } from '@angular/core';
   
   @Directive({
     selector: '[appCourseStatus]'
   })
-  export class CourseStatusDirective implements OnInit {
+  export class CourseStatusDirective implements OnInit, OnChanges {
   
     @Input() appCourseStatus: string = '';
   
     constructor(private el: ElementRef, private renderer: Renderer2) {}
   
     ngOnInit(): void {
-        console.log(this.appCourseStatus);
-        
+      this.updateClass();
+    }
   
-      // سپس برای هر وضعیت استایل‌های مختلف رو اضافه کن
+    ngOnChanges(changes: SimpleChanges): void {
+      if (changes['appCourseStatus']) {
+        this.updateClass();
+      }
+    }
+  
+    private updateClass() {
+      // اول تمام کلاس‌های مربوط به وضعیت‌های قبلی رو حذف کنیم:
+      const allStatusClasses = [
+        '!text-main-blue', '!bg-light-blue',
+        '!bg-[#F0FFF8]', '!text-[#0EB465]',
+        'bg-[#FFFCF2]', '!text-[#F8B604]',
+        '!bg-[#FFF2F4]', '!text-[#FF233D]'
+      ];
+      allStatusClasses.forEach(cls => this.renderer.removeClass(this.el.nativeElement, cls));
+  
+      // حالا کلاس مربوط به وضعیت جدید رو اضافه کن:
       switch (this.appCourseStatus) {
         case 'در حال برگزاری':
           this.renderer.addClass(this.el.nativeElement, '!text-main-blue');
           this.renderer.addClass(this.el.nativeElement, '!bg-light-blue');
-          console.log(this.appCourseStatus);
-          
           break;
         case 'در انتظار برگزاری':
           this.renderer.addClass(this.el.nativeElement, '!bg-[#F0FFF8]');
