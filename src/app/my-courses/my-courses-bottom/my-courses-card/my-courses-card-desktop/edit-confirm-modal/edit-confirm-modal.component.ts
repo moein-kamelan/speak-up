@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MaterialModule } from '../../../../../material/material.module';
 import { CoursesService } from '../../../../../services/courses.service';
@@ -30,7 +30,7 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   templateUrl: './edit-confirm-modal.component.html',
-  styleUrl: './edit-confirm-modal.component.css'
+  styleUrl: './edit-confirm-modal.component.css',
 })
 export class EditConfirmModalComponent implements OnInit {
 [x: string]: any;

@@ -20,7 +20,7 @@ export class DashboardTopComponent {
       level: "A2",
       term: "A1 a",
       startTime: "1402/09/21",
-      members: "10/10",
+      members: 32,
       status: CourseStatus.Finished,
       date: "24 آذر ماه",
       hour: "ساعت 12:00"

@@ -22,7 +22,9 @@ export class AddCourseBtnComponent {
   constructor(private dialog: MatDialog) {} 
   onAddClick() {
 
-    const dialogRef = this.dialog.open(AddConfirmModalComponent)
+    const dialogRef = this.dialog.open(AddConfirmModalComponent , {
+      disableClose:true
+    })
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result === true) {
