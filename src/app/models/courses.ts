@@ -7,7 +7,7 @@ export interface Course {
   level: string,
   term: string,
   startTime: string,
-  members: string,
+  members: number,
   status: CourseStatus,
   date: string,
   hour: string,

@@ -1,14 +1,31 @@
-import { Component, InjectionToken, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, InjectionToken, OnInit, ViewEncapsulation } from '@angular/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import { MaterialModule } from '../../../../material/material.module';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormControl, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { DialogRef } from '@angular/cdk/dialog';
 import { CoursesService } from '../../../../services/courses.service';
 import { Course } from '../../../../models/courses';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CommonModule, NgFor } from '@angular/common';
 import { CourseStatus } from '../../../../course-status';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import {provideMomentDateAdapter} from '@angular/material-moment-adapter';
+import {default as _rollupMoment} from 'moment';
+import * as _moment from 'moment';
+const moment = _rollupMoment || _moment;
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'LL',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
+
 @Component({
   selector: 'app-add-confirm-modal',
   imports: [MatInputModule , 
@@ -17,12 +34,19 @@ import { CourseStatus } from '../../../../course-status';
     MatInputModule,
     MatFormFieldModule,
     FormsModule ,
-    CommonModule
+    CommonModule,
+      FormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './add-confirm-modal.component.html',
-  styleUrl: './add-confirm-modal.component.css'
+  styleUrl: './add-confirm-modal.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [provideNativeDateAdapter() ,  provideMomentDateAdapter(MY_FORMATS)],
+    encapsulation: ViewEncapsulation.None,
 })
 export class AddConfirmModalComponent implements OnInit {
+
+readonly date = new FormControl(moment());
   constructor(
     private dialogRef: MatDialogRef<AddConfirmModalComponent>,
     private coursesService: CoursesService
@@ -50,10 +74,9 @@ onConfirm(formValid:any) {
 
 onSubmit(form:NgForm) {
 console.log(form.value);
-const newCourse = {  img : "/images/hero-img.png" , ...form.value }
-    console.log("newCourse" ,newCourse);
+const submittedDate = {  img : "/images/hero-img.png" , ...form.value }
 
-    this.coursesService.createCourse(newCourse)
+this.dialogRef.close(submittedDate)
 
 }
   

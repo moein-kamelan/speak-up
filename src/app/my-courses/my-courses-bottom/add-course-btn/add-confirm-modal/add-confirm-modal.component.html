@@ -1,116 +1,158 @@
-<h2 mat-dialog-title class="font-iranSansRegular">ویرایش دوره</h2>
+<h2 mat-dialog-title>
+  <span>ویرایش دوره</span> <mat-icon class="dialog-clsoe-icon" (click)="onCancel()">close</mat-icon>
+</h2>
 
-<form
-  class="example-form flex flex-col p-2 max-h-[500px]"
-  #form="ngForm"
-  (ngSubmit)="onSubmit(form)"
->
-  <mat-form-field class="example-full-width">
-    <mat-label>عنوان</mat-label>
-    <input
-      class=""
-      type="text"
-      matInput
-      name="title"
-      placeholder="عنوان دوره را بنویسید"
-      required
-      ngModel
-    />
-  </mat-form-field>
+<form class="example-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <div class="feild-container">
+    <mat-form-field class="example-full-width">
+      <mat-label>عنوان</mat-label>
+      <input
+        class=""
+        type="text"
+        matInput
+        name="title"
+        placeholder="عنوان دوره را بنویسید"
+        required
+        ngModel
+        minlength="4"
+        #titleInput="ngModel"
+      />
+      <mat-error *ngIf="titleInput.hasError('required')"
+        >مقداری وارد نشده</mat-error
+      >
+      <mat-error *ngIf="!titleInput.hasError('required')"
+        >مقدار وارد شده معتبر نیست.</mat-error
+      >
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>سطح</mat-label>
-    <input
-      class=""
-      type="text"
-      matInput
-      name="level"
-      placeholder="سطح دوره را بنویسید"
-      required
-      ngModel
-    />
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>ترم</mat-label>
-    <input
-      class=""
-      type="text"
-      matInput
-      name="term"
-      placeholder="ترم دوره را بنویسید"
-      required
-      ngModel
-    />
-  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>سطح</mat-label>
+      <input
+        class=""
+        type="text"
+        matInput
+        name="level"
+        placeholder="سطح دوره را بنویسید"
+        required
+        ngModel
+        #levelInput="ngModel"
+      />
+      <mat-error *ngIf="levelInput.hasError('required')"
+        >مقداری وارد نشده</mat-error
+      >
+      <mat-error *ngIf="!levelInput.hasError('required')"
+        >مقدار وارد شده معتبر نیست.</mat-error
+      >
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>زمان شروع</mat-label>
-    <input
-      class=""
-      type="text"
-      matInput
-      name="startTime"
-      placeholder="زمان شروع دوره را بنویسید"
-      required
-      ngModel
-    />
-  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>ترم</mat-label>
+      <input
+        class=""
+        type="text"
+        matInput
+        name="term"
+        placeholder="ترم دوره را بنویسید"
+        required
+        ngModel
+      />
+      <mat-error *ngIf="levelInput.hasError('required')"
+        >مقداری وارد نشده</mat-error
+      >
+      <mat-error *ngIf="!levelInput.hasError('required')"
+        >مقدار وارد شده معتبر نیست.</mat-error
+      >
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>اعضا</mat-label>
-    <input
-      class=""
-      type="text"
-      matInput
-      name="members"
-      placeholder="تعداد اعضا را بنویسید"
-      required
-      ngModel
-    />
-  </mat-form-field>
+    <mat-form-field class="example-form-field">
+      <mat-label>تاریخ</mat-label>
+      <input
+        matInput
+        [matDatepicker]="datepicker"
+        ngModel
+        name="date"
+        required
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="datepicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #datepicker>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+      <mat-error *ngIf="levelInput.hasError('required')"
+        >مقداری وارد نشده</mat-error
+      >
+      <mat-error *ngIf="!levelInput.hasError('required')"
+        >مقدار وارد شده معتبر نیست.</mat-error
+      >
+    </mat-form-field>
 
-  <mat-label>وضعیت</mat-label>
-  <select
-    matNativeControl
-    class="mb-8 !bg-[#e0e2ec] p-3"
-    name="status"
-    required
-    ngModel
-  >
+    <mat-form-field>
+      <mat-label>تاریخ برگزاری</mat-label>
+      <input matInput [matDatepicker]="dp" ngModel name="startTime" required />
+      <mat-hint>MMMM DD, YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+      <mat-datepicker #dp></mat-datepicker>
+      <mat-error *ngIf="levelInput.hasError('required')"
+        >مقداری وارد نشده</mat-error
+      >
+      <mat-error *ngIf="!levelInput.hasError('required')"
+        >مقدار وارد شده معتبر نیست.</mat-error
+      >
+    </mat-form-field>
 
-  <option   value="" selected></option>
-  <option  *ngFor="let status  of statusOptions" [value]="status">{{status}}</option>
-    <!-- <option value="در حال برگزاری">در حال برگزاری</option>
-    <option value="در انتظار برگزاری">در انتظار برگزاری</option>
-    <option value="در انتظار تکمیل ظرفیت">در انتظار تکمیل ظرفیت</option>
-    <option value="پایان یافته">پایان یافته</option> -->
+    <mat-form-field appearance="fill">
+      <mat-label>ساعت</mat-label>
+      <input matInput type="time" name="hour" ngModel required />
 
-  </select>
+      <mat-error *ngIf="levelInput.hasError('required')"
+        >مقداری وارد نشده</mat-error
+      >
+      <mat-error *ngIf="!levelInput.hasError('required')"
+        >مقدار وارد شده معتبر نیست.</mat-error
+      >
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>تاریخ</mat-label>
-    <input
-      class=""
-      type="text"
-      matInput
-      name="date"
-      placeholder="ساعت را وارد کنید"
-      required
-      ngModel
-    />
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>ساعت</mat-label>
-    <input
-      class=""
-      type="text"
-      matInput
-      name="hour"
-      placeholder="عنوان دوره را بنویسید"
-      required
-      ngModel
-    />
-  </mat-form-field>
+    <mat-form-field class="dialog-members-input">
+      <mat-label>اعضا</mat-label>
+      <input
+        class=""
+        type="number"
+        matInput
+        name="members"
+        placeholder="تعداد اعضا را بنویسید"
+        required
+        ngModel
+      />
+
+      <mat-error *ngIf="levelInput.hasError('required')"
+        >مقداری وارد نشده</mat-error
+      >
+      <mat-error *ngIf="!levelInput.hasError('required')"
+        >مقدار وارد شده معتبر نیست.</mat-error
+      >
+    </mat-form-field>
+    <div class="dialog-status-input">
+      <mat-label>وضعیت</mat-label>
+      <select
+        matNativeControl
+        class="mb-8 !bg-[#e0e2ec] p-3"
+        name="status"
+        required
+        ngModel
+      >
+        <option value="" selected></option>
+        <option *ngFor="let status of statusOptions" [value]="status">
+          {{ status }}
+        </option>
+      </select>
+    </div>
+  </div>
 
   <mat-dialog-actions align="end">
     <button mat-button type="button" (click)="onCancel()">لغو</button>
@@ -120,8 +162,10 @@
       type="submit"
       (click)="onConfirm(form.invalid)"
       [disabled]="form.invalid"
+      [ngClass]="{ 'invalid-btn': form.invalid }"
     >
       ویرایش
+      <mat-icon>edit</mat-icon>
     </button>
   </mat-dialog-actions>
 </form>

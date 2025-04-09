@@ -30,6 +30,9 @@
     --breakpoint-xs : 480px;
 }
 
+body {
+    @apply !font-iranSansRegular
+}
 
 .activedLink {
     @apply bg-main-blue text-main-white rounded-lg
