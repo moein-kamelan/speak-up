@@ -7,6 +7,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { ModalComponent } from '../../../shared/modal/modal.component';
 import { CourseStatus } from '../../../course-status';
+import { CoursesService } from '../../../services/courses.service';
 
 @Component({
   selector: 'app-add-course-btn',
@@ -21,7 +22,7 @@ import { CourseStatus } from '../../../course-status';
   styleUrl: './add-course-btn.component.css'
 })
 export class AddCourseBtnComponent {
-  constructor(private dialog: MatDialog) {} 
+  constructor(private dialog: MatDialog ,private coursesService: CoursesService) {} 
   onAddClick() {
 
     const dialogRef = this.dialog.open(ModalComponent , {
@@ -29,14 +30,14 @@ export class AddCourseBtnComponent {
       data : {
         title : "اضافه کردن دوره",
         fields : [
-          {name : "title" , label : "عنوان" , type : "string"},
-          {name : "level" , label : "سطح" , type : "string"},
-          {name : "term" , label : "ترم" , type : "string"},
-          {name : "startTime" , label : "زمان شروع" , type : "string"},
-          {name : "members" , label : "تعداد عضو" , type : "number"},
-          {name : "status" , label : "وضعیت" , type : "select" , options : [CourseStatus.InProgress , CourseStatus.WaitingForCapacity , CourseStatus.WaitingToStart , CourseStatus.Finished]},
-          {name : "date" , label : "تاریخ" , type : "string"},
-          {name : "hour" , label : "ساعت" , type : "string"},
+          {name : "title" , label : "عنوان" , type : "text" , required : true},
+          {name : "level" , label : "سطح" , type : "text" , required : true},
+          {name : "term" , label : "ترم" , type : "text" , required : true},
+          {name : "startTime" , label : "زمان شروع" , type : "date" , required : true},
+          {name : "members" , label : "تعداد عضو" , type : "number" , required : true},
+          {name : "status" , label : "وضعیت" , type : "select" , options : [CourseStatus.InProgress , CourseStatus.WaitingForCapacity , CourseStatus.WaitingToStart , CourseStatus.Finished] , required : true},
+          {name : "date" , label : "تاریخ" , type : "date" , required : true},
+          {name : "hour" , label : "ساعت" , type : "time" , required : true},
         ]
         ,
         submitButtonText : "اضافه"
@@ -45,13 +46,13 @@ export class AddCourseBtnComponent {
       }
     })
 
-    dialogRef.afterClosed().subscribe((result: boolean) => {
-      if (result === true) {
-      
-        console.log('اضافه کردن تأیید شد');
-      } else {
-        console.log('اضافه کردن لغو شد');
+    dialogRef.afterClosed().subscribe((result) => {
+      if(result) {
+
+        this.coursesService.createCourse(result)
       }
+      
+     
     });
     
   }

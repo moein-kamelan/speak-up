@@ -5,7 +5,7 @@
   <span class="myCourses-card-desktop__title">{{ course.title }}</span>
   <span class="myCourses-card-desktop__level">{{ course.level }}</span>
   <span class="myCourses-card-desktop__term">{{ course.term }}</span>
-  <span class="myCourses-card-desktop__start-time">{{ course.date }} </span>
+  <span class="myCourses-card-desktop__start-time">{{ course.date | date: 'yyyy-MM-dd'}}</span>
   <span class="myCourses-card-desktop__members">{{ course.members }}</span>
 
 

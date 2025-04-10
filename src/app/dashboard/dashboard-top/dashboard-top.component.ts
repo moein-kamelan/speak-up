@@ -19,10 +19,10 @@ export class DashboardTopComponent {
       title: "Big English 4",
       level: "A2",
       term: "A1 a",
-      startTime: "1402/09/21",
+      startTime: new Date("2022-04-01"),
       members: 32,
       status: CourseStatus.Finished,
-      date: "24 آذر ماه",
+      date: new Date("2017-08-02"),
       hour: "ساعت 12:00"
 
     },]

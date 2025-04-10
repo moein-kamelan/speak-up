@@ -15,11 +15,11 @@ export class CoursesService {
       title: "Big English 4",
       level: "A2",
       term: "A1 a",
-      startTime: "1402/09/21",
+      startTime: new Date("2023-12-3"),
       members: 12,
       status : CourseStatus.Finished ,
-      date: "24 آذر ماه",
-      hour: "ساعت 12:00"
+      date: new Date("2018-01-23"),
+      hour: "12:00"
     },
     {
       id: Math.random() * 10000,
@@ -27,11 +27,11 @@ export class CoursesService {
       title: "Big English 2",
       level: "A1",
       term: "A2 b",
-      startTime: "1402/11/03",
+      startTime: new Date("2024-3-2"),
       members: 8,
       status : CourseStatus.InProgress ,
-      date: "24 بهمن ماه",
-      hour: "ساعت 11:32 "
+      date: new Date("2020-01-23"),
+      hour: "11:32 "
     },
     {
       id: Math.random() * 10000,
@@ -39,11 +39,11 @@ export class CoursesService {
       title: "Big English 5",
       level: "A2",
       term: "A1 a",
-      startTime: "1401/03/20",
+      startTime: new Date("2023-01-04"),
       members: 2,
       status : CourseStatus.WaitingForCapacity , 
-      date: "25 شهریور ماه",
-      hour: "08:34 ساعت "
+      date: new Date("2021-03-04"),
+      hour: "08:34"
     },
     {
       id: Math.random() * 10000,
@@ -51,11 +51,11 @@ export class CoursesService {
       title: "Big English 3",
       level: "A2",
       term: "A1 g",
-      startTime: "1400/11/03",
+      startTime: new Date("2022-08-07"),
       members: 3,
       status : CourseStatus.WaitingToStart ,
-      date: "02 آبان ماه",
-      hour: "02:00 ساعت "
+      date: new Date("2020-01-23"),
+      hour: "02:00"
     },
   ]
   coursesSubject = new BehaviorSubject<Course[]>(this.courses)

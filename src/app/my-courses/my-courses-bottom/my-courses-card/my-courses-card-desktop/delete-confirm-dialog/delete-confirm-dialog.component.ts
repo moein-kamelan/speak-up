@@ -21,9 +21,8 @@ export class DeleteConfirmDialogComponent {
 
   onConfirm() {
     const id = this.data.id;
-    this.coursesService.deleteCoure(id)
     console.log("در حال حذف آیتم با آی‌دی:", id);
-    this.dialogRef.close(true); // فقط تأیید ساده
+    this.dialogRef.close(id); // فقط تأیید ساده
   }
 
   onCancel() {
