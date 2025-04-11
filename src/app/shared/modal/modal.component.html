@@ -1,0 +1,114 @@
+<h2 mat-dialog-title>
+  <span>{{ data.title }}</span>
+  <mat-icon class="dialog-clsoe-icon" (click)="onCancel()">close</mat-icon>
+</h2>
+
+<form class="example-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <div class="feild-container">
+    @for(field of data.fields ; track $index) { @if(field.type === "text" ||
+    field.type === "number") {
+
+    <mat-form-field class="example-full-width">
+      <mat-label>{{ field.label }}</mat-label>
+      <input
+        class=""
+        type="{{ field.type }}"
+        matInput
+        [name]="field.name"
+        placeholder="{{ field.label }} دوره را بنویسید"
+        [required]="field.required"
+        [(ngModel)]="formData[field.name]"
+        #model="ngModel"
+      />
+      @if(model.hasError("require")) {
+      <mat-error>مقداری وارد نشده</mat-error>
+      }@else {
+      <mat-error>مقدار وارد شده معتبر نیست.</mat-error>
+      }
+    </mat-form-field>
+
+    } @else if(field.type === "select") {
+
+    <mat-form-field>
+      <mat-label>وضعیتی را انتخاب کنید</mat-label>
+      <mat-select name="{{field.name}}" [(ngModel)]="formData[field.name]"  [required]="field.required" >
+        @for (status of statusOptions; track $index) {
+
+        <mat-option [value]="status">{{ status }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    }
+    
+    @else if (field.type === "time") {
+
+    <mat-form-field>
+      <mat-label>{{ field.label }}</mat-label>
+      <input
+        matInput
+        [type]="field.type"
+        [name]="field.name"
+        [(ngModel)]="formData[field.name]"
+        [required]="field.required"
+        #model="ngModel"
+      />
+
+      @if(model.hasError("require")) {
+      <mat-error>مقداری وارد نشده</mat-error>
+      }@else {
+      <mat-error>مقدار وارد شده معتبر نیست.</mat-error>
+      }
+    </mat-form-field>
+    }
+    
+    
+    
+    
+    
+    @else if (field.type === "date") {
+
+    <mat-form-field>
+      <mat-label>{{ field.label }}</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [name]="field.name"
+        [(ngModel)]="formData[field.name]"
+        [required]="field.required"
+        #model="ngModel"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      @if(model.invalid && model.touched) {
+        <mat-error >لطفا مقدار معتبر وارد کنید.</mat-error>
+
+      }
+    </mat-form-field>
+
+    }
+   }
+
+   
+  </div>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancel()">لغو</button>
+    <button
+      mat-button
+      color="warn"
+      type="submit"
+      [disabled]="form.invalid"
+      [ngClass]="{ 'invalid-btn': form.invalid }"
+    >
+      {{ data.submitButtonText }}
+      <mat-icon>{{ data.submitButtonIcon }}</mat-icon>
+    </button>
+  </mat-dialog-actions>
+</form>

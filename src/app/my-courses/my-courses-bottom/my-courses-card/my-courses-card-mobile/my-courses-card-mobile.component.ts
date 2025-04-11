@@ -1,9 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Course } from '../../../../models/courses';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-my-courses-card-mobile',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './my-courses-card-mobile.component.html',
   styleUrl: './my-courses-card-mobile.component.css'
 })

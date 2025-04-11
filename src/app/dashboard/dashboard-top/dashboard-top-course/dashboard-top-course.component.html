@@ -21,7 +21,7 @@ class="join shadow-sm max-sm:mb-4 px-2 rounded-xs items-center py-4 bg-main-whit
 </div>
 
 <div class="join__middle text-xs font-iranSansDemiBold sm:flex sm:gap-4 2xl:gap-20 sm:items-center *:2xl:text-[22px] *:whitespace-nowrap">
-  <h4 class="join__month">{{course.date}}</h4>
+  <h4 class="join__month">{{course.date |  date: 'MMM d, yyyy'}}</h4>
   <h4 class="join__hour">{{course.hour}}</h4>
 </div>
 

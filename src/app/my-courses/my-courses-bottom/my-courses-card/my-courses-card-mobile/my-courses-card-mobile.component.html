@@ -7,7 +7,7 @@
     <div class="myCourses-card__left flex  flex-col xs:items-end gap-y-1 *:font-iranSansDemiBold lg:hidden *:text-sm max-xs:*:text-center">
         <span class="myCourses-card__grade text-[#818181]">{{course.members}}</span>
         <div class="myCourses-card-date flex items-center gap-1">
-            <span class="myCourses-card-date__text text-[#818181]">{{course.date}}</span>
+            <span class="myCourses-card-date__text text-[#818181]">{{course.date |  date: 'MMM d, yyyy'}}</span>
     
     
             <svg class="myCourses-card-date__icon fill-[#818181] size-6 "  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

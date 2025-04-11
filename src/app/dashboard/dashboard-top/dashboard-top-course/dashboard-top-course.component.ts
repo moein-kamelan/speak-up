@@ -1,8 +1,8 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
-
 @Component({
   selector: 'app-dashboard-top-course',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './dashboard-top-course.component.html',
   styleUrl: './dashboard-top-course.component.css'
 })

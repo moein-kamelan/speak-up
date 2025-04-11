@@ -43,16 +43,17 @@ export class MyCoursesCardDesktopComponent implements OnInit {
 
   onEditClick(course: Course) {
     const dialogRef = this.dialog.open(ModalComponent, {
+      disableClose:true,
       data: {
           title : "ویرایش دوره",
           fields: [
-            { name: 'title', label: 'عنوان', type: 'string' ,required : true },
-            { name: 'level', label: 'سطح', type: 'string' ,required : true },
-            { name: 'term', label: 'ترم', type: 'string' ,required : true },
-            { name: 'startTime', label: 'زمان شروع', type: 'string' ,required : true },
+            { name: 'title', label: 'عنوان', type: 'text' ,required : true },
+            { name: 'level', label: 'سطح', type: 'text' ,required : true },
+            { name: 'term', label: 'ترم', type: 'text' ,required : true },
+            { name: 'startTime', label: 'زمان شروع', type: 'date' ,required : true },
             { name: 'members', label: 'تعداد عضو', type: 'number', required : true },
             { name: 'status', label: 'وضعیت', type: 'select' , options : [CourseStatus.InProgress , CourseStatus.WaitingForCapacity , CourseStatus.WaitingToStart , CourseStatus.Finished] , required : true},
-            { name: 'date', label: 'تاریخ', type: 'string' ,required : true },
+            { name: 'date', label: 'تاریخ', type: 'date' ,required : true },
             { name: 'hour', label: 'ساعت', type: 'time' ,required : true },
           ],
           submitButtonText: 'ویرایش',
